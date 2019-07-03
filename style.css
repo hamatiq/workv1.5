@@ -1,0 +1,115 @@
+nav ul li{
+    margin: 0 2px;
+}
+
+#sortbtn{
+    display: block;
+    text-align: center;
+}
+
+#mainCont{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+table{
+    display: block;
+    width: 100%;
+    padding: 1%;
+    margin: auto;
+    text-align: center;
+}
+thead,tbody{
+    display: table-row-group;
+    width: 100%;
+    float: left;
+    padding: 2px;
+    color: whitesmoke;
+}
+tr{
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+th{
+    color: lightblue;
+}
+hr{
+    background-color: #17a2b8;
+}
+
+td{
+    border: 0px;
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }
+
+#carinput{
+    display: block;
+    color: whitesmoke;
+    width: 60%;
+    text-align: center;
+    margin: auto;
+}
+table{
+    display:block;
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.tablehead{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    color: darkblue;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+.tablerow{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    width: 100%;
+    /* border: 1px solid black; */
+    border-radius: 7px;
+    margin:2px 2px;
+    background-color: rgb(156, 156, 156);
+    white-space: nowrap;
+
+}
+/* .tablerow:hover{
+    box-shadow: 0 3px gray;
+} */
+.tablebody{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+}
+.tablecell{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.formInput{
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 70%;
+    white-space: nowrap;
+}
