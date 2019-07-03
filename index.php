@@ -59,15 +59,14 @@
                         <label for="inspection">Inspection</label>
                         <input type="text" class = "form-control" name="inspection" id="inspection" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
-                    <div class="col-mb-2 mb-3">
+                    <div class="col-mb-3 mb-3">
                         <label for="buttons">pictures</label>
                         <div class="btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                            <input type="checkbox" autocomplete="off"> taken
-                        </label>
+                            <label class="btn btn-secondary">
+                                <input type="checkbox" autocomplete="off" onclick="$(this).parent().toggleClass('btn-success','btn-secondary')">✔</label>
                         </div>
                     </div>
-                    <div class="col-md-2 mb-3"> 
+                    <div class="col-md-1 mb-3"> 
                         <label for="submit">Done</label>
                         <button type="submit" class="btn btn-outline-success">Submit</button>
                     </div>
@@ -102,46 +101,7 @@
             </div>
         </div>
         <div class='tablebody' id='carlist'>
-            <!-- 
-            <div style='display:none; width:90%; margin:auto;' id>
-                <div class='formInput'>
-                    <form id='addjobform' action='addjob.php' method=post>
-                        <input type='hidden' name='stock' value='ROW.STOCK'>  
-                        <input type='text' class='form-control' name='description' placeholder='description' style='margin-bottom:3px'>
-                        <button type='submit' class='btn btn-success'>addjob</button>
-                    </form>
-                    <br>
-                </div>
-                <div>
-                    <div class='tablehead'>
-                        <div class='tablerow'>
-                            <div style='width:40%; display:inline-block' class='tablecell'>discribtion</div>
-                            <div style='width:28%; display:inline-block' class='tablecell'>part</div>
-                            <div style='width:28%; display:inline-block' class='tablecell'>labor</div>
-                        </div>
-                    </div>
-                    <div class='tablebody'>
-                        <div class='tablerow'>
-                            <div style='width:40%; display:inline-block' class='tablecell'>.job['discribtion'].</div>
-                            <div style='width:28%; display:inline-block' class='tablecell'>.job['part'].</div>
-                            <div style='width:28%; display:inline-block' class='tablecell'>.job['labor'].</div>
-                        </div>
-                    </div>
-                    <div class='tablehead'>
-                        <div class="tablerow">
-                            <div style='width:60%; display:inline-block' class='tablecell'>discribtion</div>
-                            <div style='width:35%; display:inline-block' class='tablecell'>cost</div>
-                        </div>
-                    </div>
-                    <div class='tablebody'>
-                        <div class='tablerow'>
-                            <div style='width:60%; display:inline-block' class='tablecell'>.done['discribtion'].</div>
-                            <div style='width:35%; display:inline-block' class='tablecell'>.done['cost'].</div>
-                        </div>
-                    </div>
-                </div> 
-            </div>-->
-
+        
         </div>
     </div>
 </body>

@@ -88,3 +88,9 @@ function showjobs(stock,element){
     $('#'+id).slideToggle();
     $(element).text($(element).text() == '⇊'?'⇈':'⇊');
 }
+function filljob(stock){
+    var id = stock+'job';
+    $.ajax({url: 'getjob.php?stock='+stock,success: function(result){
+        $('#'+id).append(result);}
+    });
+}

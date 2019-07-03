@@ -94,7 +94,8 @@ while($row = $result->fetch_assoc()){
     </div>
     </div>
     <div style='display:none; width:90%; margin:auto;' id='".$row['stock']."job'>
-    </div>";
+    </div>
+    <script>filljob(".$row['stock'].");</script>";
 
 
 }
