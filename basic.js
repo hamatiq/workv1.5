@@ -1,28 +1,28 @@
 //buttons functinality to sort the list of cars
-function sort(element){
+function sort(element) {
     $(element).parent().children().removeClass('btn-primary');
     $(element).parent().children().not(element).addClass('btn-secondary');
     $(element).removeClass('btn-secondary');
     $(element).addClass('btn-primary');
     var id = element.id;
-    if(id == 'year'){
+    if (id == 'year') {
         cars(2);
-    }
-    else if (id == 'make'){
+    } else if (id == 'make') {
         cars(3);
-    }
-    else if (id == 'cost'){
+    } else if (id == 'cost') {
         cars(4);
-    }
-    else {
+    } else {
         cars(1);
     }
 }
 
 // get request to display all cars
 function cars(str) {
-    $.ajax({url: 'car.php?q='+str,success: function(result){
-        $('#carlist').append(result);}
+    $.ajax({
+        url: 'car.php?q=' + str,
+        success: function(result) {
+            $('#carlist').append(result);
+        }
     });
 }
 
@@ -43,52 +43,117 @@ function cars(str) {
 //     $(str).toggle();
 // }
 
-function jobs(element, stock){
+function jobs(element, stock) {
     // prints the jobs yet to be done
-    $.ajax({url: 'jobs.php?stock='+stock,success: function(result){
-        $('#not_done').append(result);}
+    $.ajax({
+        url: 'jobs.php?stock=' + stock,
+        success: function(result) {
+            $('#not_done').append(result);
+        }
     });
     // print jobs that are done
-    $.ajax({url: 'donejobs.php?stock='+stock,success: function(result){
-        $('#done').append(result);
-    }});
-}
-
-function addjob(element){
-    $('#addjobform').remove();
-    var stock= $(element).parent().parent().prev().children(":first").text();
-    // console.log(stock);
-    $('<form id="addjobform" action="addjob.php" method=post>'
-    +'<input type="text" class="form-control" name="description"><br>'
-    +'<label for="description">describe:</label>'
-    +'<input type="hidden" name="stock" value='+stock+'>'
-    +'<button type="submit" class="btn btn-success">Submit</button>'
-    +'</form>').insertAfter(element);
-}
-
-function showjobs(stock,element){
-    var id = stock+'job';
-    $('#'+id).slideToggle();
-    $(element).text($(element).text() == '⇊'?'⇈':'⇊');
-}
-function filljob(stock){
-    var id = stock+'job';
-    $.ajax({url: 'getjob.php?stock='+stock,success: function(result){
-        $('#'+id).append(result);}
+    $.ajax({
+        url: 'donejobs.php?stock=' + stock,
+        success: function(result) {
+            $('#done').append(result);
+        }
     });
 }
-function updateinspection(element){
+
+function addjob(element) {
+    $('#addjobform').remove();
+    var stock = $(element).parent().parent().prev().children(":first").text();
+    // console.log(stock);
+    $('<form id="addjobform" action="addjob.php" method=post>' +
+        '<input type="text" class="form-control" name="description"><br>' +
+        '<label for="description">describe:</label>' +
+        '<input type="hidden" name="stock" value=' + stock + '>' +
+        '<button type="submit" class="btn btn-success">Submit</button>' +
+        '</form>').insertAfter(element);
+}
+
+function showjobs(stock, element) {
+    var id = stock + 'job';
+    $('#' + id).slideToggle();
+    $(element).text($(element).text() == '⇊' ? '⇈' : '⇊');
+}
+
+function filljob(stock) {
+    var id = stock + 'job';
+    $.ajax({
+        url: 'getjob.php?stock=' + stock,
+        success: function(result) {
+            $('#' + id).append(result);
+        }
+    });
+}
+
+function updateinspection(element) {
     event.preventDefault();
 
     var stocknum = $(element).find("input[name='stock']").val();
-    console.log(stocknum);
-    var date = $(element).find("input[name='date']").val();
-    console.log(date);
-    // $.ajax({
-    //     type: "POST",
-    //     url: "inspection.php",
-    //     data: { stock:stocknum,date:""},
-    //     success: success,
-    //     dataType: dataType
-    //   });
+    // console.log(stocknum);
+    var insdate = $(element).find("input[name='date']").val();
+    // console.log(insdate);
+
+    // console.log($("#" + stocknum + "row").find("div[name='inspection']").html())
+
+    // $.post("ins-update.php", { stock = stocknum, date = insdate }, function(result) {});
+
+    $.ajax({
+        type: 'POST',
+        url: 'ins-update.php',
+        data: {
+            'stock': stocknum,
+            'date': insdate
+        },
+        success: function(msg) {
+            // console.log(msg);
+            // $('#testing').html(msg);
+            $("#" + stocknum + "row").find("div[name='inspection']").html(msg);
+        }
+    });
+
+}
+
+function updatetitle(element) {
+    event.preventDefault();
+
+    var stocknum = $(element).find("input[name='stock']").val();
+    var title = $(element).find("input[name='title']").val();
+    $.ajax({
+        type: 'POST',
+        url: 'title-update.php',
+        data: {
+            'stock': stocknum,
+            'title': true
+        },
+        success: function(msg) {
+            // console.log(msg);
+            // $('#testing').html(msg);
+            $("#" + stocknum + "row").find("div[name='title']").html(msg);
+        }
+    });
+
+}
+
+function updatepic(element) {
+    event.preventDefault();
+
+    var stocknum = $(element).find("input[name='stock']").val();
+    var title = $(element).find("input[name='pic']").val();
+    $.ajax({
+        type: 'POST',
+        url: 'pic-update.php',
+        data: {
+            'stock': stocknum,
+            'pic': true
+        },
+        success: function(msg) {
+            // console.log(msg);
+            // $('#testing').html(msg);
+            $("#" + stocknum + "row").find("div[name='picture']").html(msg);
+        }
+    });
+
 }

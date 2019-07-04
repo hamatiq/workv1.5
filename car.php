@@ -47,12 +47,16 @@ while($row = $result->fetch_assoc()){
     $date = strtotime($row['inspection']);
     $month2 = $date - strtotime('-2 month');
     if (($date - strtotime('-2 month'))>0){
-        print "<div style='width: 10.33%' class='tablecell'>".date("m/j/y",$date)."</div>";
+        print "<div style='width: 10.33%' class='tablecell' name='inspection' >
+        ".date("m/j/y",$date)."</div>";
     }
+    
     else{
-        print"<div style='width: 10.33%' class='tablecell'>
+        print"<div style='width: 10.33%' class='tablecell' name='inspection'>
             <form onsubmit='updateinspection(this)'>
-                <input name='date' style='font-size:12px; width:70%; overflow: hidden; display:inline-block;' class='form-control' placeholder='".date("m/j/y",$date)."' type='text' onfocus=\"(this.type='date')(this.placeholder='')\" onblur=\"(this.type='text')(this.placeholder='".date("m/j/y",$date)."')\">
+            <input type='text' name='date' placeholder='".date("m/j/y",$date)."' 
+            onfocus=\"(this.type='date')(this.placeholder='')\" onblur=\"(this.type='text')(this.placeholder='".date("m/j/y",$date)."')\"
+            style='font-size:12px; width:70%; overflow: hidden; display:inline-block;' class='form-control'>
                 <input type='hidden' name='stock' value='".$row['stock']."'>
                 <button type='submit' style='font-size:10px;border:none; overflow: hidden;' class='btn btn-primary btn-sm'>✔</button>
             </form>
@@ -60,30 +64,31 @@ while($row = $result->fetch_assoc()){
     }
     if ($row['title'] == true){
         print"
-        <div style='width:6.33%' class='tablecell'>
+        <div style='width:6.33%' class='tablecell' name='title'>
         <input type='checkbox' checked onclick='return false'>
         </div>";
     }
     else{
-        print"<div style='width:6.33%' class='tablecell'>
-             <form action='updatetitle.php'>
-        <input type='checkbox' onchange='this.form.submit()'>
-        <input type='hidden' name='stock' value=".$row['stock'].">
-        </form>
-         </div>";
+        print"
+        <div style='width:6.33%' class='tablecell' name='title'>
+             <form onsubmit='updatetitle(this)'>
+                <input type='checkbox' name='title' onchange='updatetitle(\$(this).parent())'>
+                <input type='hidden' name='stock' value=".$row['stock'].">
+            </form>
+        </div>";
     }
     if($row['pictures'] == true){
         print"
-        <div style='width:4.165%'class='tablecell'>
+        <div style='width:4.165%'class='tablecell' name='picture'>
             <input type='checkbox' checked onclick='return false'>
         </div>
         ";
     }
     else{
         print"
-        <div style='width:4.165%'class='tablecell'>
-            <form action='updatepic.php'>
-                <input type='checkbox' onchange='this.form.submit()'>
+        <div style='width:4.165%'class='tablecell' name='picture'>
+            <form onsubmit='updatepic(this)'>
+                <input type='checkbox' name='pic' onchange='updatepic(\$(this).parent())'>
                 <input type='hidden' name='stock' value=".$row['stock'].">
             </form>
         </div>

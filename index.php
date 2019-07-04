@@ -83,6 +83,8 @@
             <button type="button" class="btn btn-secondary" id='cost' onclick=sort(this)>cost</button>
         </div>
     </header>
+    <div id='testing'></div>
+
     <div class="table">
         <div class='tablehead' >
             <div class = 'tablerow'>
