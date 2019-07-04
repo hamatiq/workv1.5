@@ -66,23 +66,6 @@ function addjob(element){
     +'</form>').insertAfter(element);
 }
 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-    host: "todo2.cjdks7jqac0y.us-east-2.rds.amazonaws.com",
-    user: 'aaauto',
-    password:"Sawsan.123",
-    database: "todo"
-});
-
-con.connect(function(err){
-    if (err) throw err;
-    con.query("select * from car where stock = 17251", function (err,result,fields){
-      if (err) throw err;
-      console.log(result);  
-    });
-});
-
 function showjobs(stock,element){
     var id = stock+'job';
     $('#'+id).slideToggle();
@@ -93,4 +76,19 @@ function filljob(stock){
     $.ajax({url: 'getjob.php?stock='+stock,success: function(result){
         $('#'+id).append(result);}
     });
+}
+function updateinspection(element){
+    event.preventDefault();
+
+    var stocknum = $(element).find("input[name='stock']").val();
+    console.log(stocknum);
+    var date = $(element).find("input[name='date']").val();
+    console.log(date);
+    // $.ajax({
+    //     type: "POST",
+    //     url: "inspection.php",
+    //     data: { stock:stocknum,date:""},
+    //     success: success,
+    //     dataType: dataType
+    //   });
 }

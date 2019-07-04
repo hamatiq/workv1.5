@@ -51,11 +51,12 @@ while($row = $result->fetch_assoc()){
     }
     else{
         print"<div style='width: 10.33%' class='tablecell'>
-        <form action='updateins.php'>
-                <input style='font-size:12px; width:120px;' placeholder='".date('m/j/y',$date)."' type='text' onfocus='(this.type='date')(this.placeholder='')' onblur='(this.type='text')' onchange='this.form.submit()'>
+            <form onsubmit='updateinspection(this)'>
+                <input name='date' style='font-size:12px; width:70%; overflow: hidden; display:inline-block;' class='form-control' placeholder='".date("m/j/y",$date)."' type='text' onfocus=\"(this.type='date')(this.placeholder='')\" onblur=\"(this.type='text')(this.placeholder='".date("m/j/y",$date)."')\">
                 <input type='hidden' name='stock' value='".$row['stock']."'>
+                <button type='submit' style='font-size:10px;border:none; overflow: hidden;' class='btn btn-primary btn-sm'>✔</button>
             </form>
-            </div>";
+        </div>";
     }
     if ($row['title'] == true){
         print"
