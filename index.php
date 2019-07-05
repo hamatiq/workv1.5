@@ -83,8 +83,15 @@
             <button type="button" class="btn btn-secondary" id='cost' onclick=sort(this)>cost</button>
         </div>
     </header>
-    <div id='testing'></div>
-
+    <!-- <div id='testing'></div>
+    <div>
+        <form onsubmit='addjob()'>
+            <input type='text' name='info' class='form-control'>
+            <input type='hidden' name='stock'>
+            <button type='submit' class='btn btn-info'>Add Job</button>
+        </form>
+    </div>
+    <div style='width:30%'><button type='button' class='btn btn-warning' onclick='sold()'>Mark As Sold</button></div> -->
     <div class="table">
         <div class='tablehead' >
             <div class = 'tablerow'>

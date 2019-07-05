@@ -18,6 +18,13 @@ else{
     $result = $mysqli->query($query);
     print "
     <div class='table' style='width:70%; margin:auto'>
+        <div>
+            <form onsubmit='addjob()'>
+                <input type='text' name='info' placeholder='description!' class='form-control'>
+                <input type='hidden' name='stock' value='$stock'>
+                <button type='submit' style='width:20%' class='btn btn-info'>Add Job</button>
+            </form>
+        </div>
             <div class='tablehead' style='margin:0;'>
                 <div class='tablerow'>
                     <div style='width:40%' class='tablecell'>Describtion</div>
@@ -64,6 +71,10 @@ else{
             </div>";
             }
             print "</div>";
+
+            print"<div style='width:30%; margin:auto;'>
+                <button type='button' style='display:block; width:100%' class='btn btn-danger' onclick='sold($stock)'>Mark As Sold</button>
+                </div>";
     print "</div>";
 
 }
