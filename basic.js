@@ -83,7 +83,7 @@ function filljob(stock) {
     $.ajax({
         url: 'getjob.php?stock=' + stock,
         success: function(result) {
-            $('#' + id).append(result);
+            $('#' + id).html(result);
         }
     });
 }
@@ -153,6 +153,26 @@ function updatepic(element) {
             // console.log(msg);
             // $('#testing').html(msg);
             $("#" + stocknum + "row").find("div[name='picture']").html(msg);
+        }
+    });
+
+}
+function addjob(element) {
+    event.preventDefault();
+
+    var stock = $(element).find("input[name='stock']").val();
+    var description = $(element).find("input[name='info']").val();
+    $.ajax({
+        type: 'POST',
+        url: 'addjob.php',
+        data: {
+            'stock': stock,
+            'description': description
+        },
+        success: function(msg) {
+            // console.log(msg);
+            // $('#testing').html(msg);
+            filljob(stock);
         }
     });
 

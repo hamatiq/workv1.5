@@ -36,5 +36,10 @@ print"<form onsubmit='updateinspection(this)'>
     </form>";
 }
 
+// Close the result set
+// $result->close();
+// Close the database connection
+$mysqli->close();
+
 
 ?>

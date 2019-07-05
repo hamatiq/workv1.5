@@ -51,24 +51,41 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                        <label for="cost">Cost</label>
-                        <input type="number" name="cost" id="carcost" class="form-control">
+                    <div class="col-md-3 mb-4">
+                        <label for="cost">Milage</label>
+                        <input type="number" name="milage" id="carcost" class="form-control">
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-4">
+                        <div class= "form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="cost">Cost</label>
+                                <input type="text" class = "form-control" name="cost" id="cost">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="expences">Expences</label>
+                                <input type="text" class = "form-control" name="expences" id="cost" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
                         <label for="inspection">Inspection</label>
                         <input type="text" class = "form-control" name="inspection" id="inspection" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
-                    <div class="col-mb-3 mb-3">
-                        <label for="buttons">pictures</label>
-                        <div class="btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-secondary">
-                                <input type="checkbox" autocomplete="off" onclick="$(this).parent().toggleClass('btn-success','btn-secondary')">✔</label>
+                    
+                    <div class="col-md-3 mb-4">
+                        <div class= "form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="buttons">Pictures</label>
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input type="checkbox" name="pic" id="pic" autocomplete="off" onclick="$(this).parent().toggleClass('btn-success','btn-secondary')">✔</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="submit">Done</label>
+                                <button type="submit" class="btn btn-outline-success">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-1 mb-3"> 
-                        <label for="submit">Done</label>
-                        <button type="submit" class="btn btn-outline-success">Submit</button>
                     </div>
                 </div>
             </form>
@@ -83,15 +100,7 @@
             <button type="button" class="btn btn-secondary" id='cost' onclick=sort(this)>cost</button>
         </div>
     </header>
-    <!-- <div id='testing'></div>
-    <div>
-        <form onsubmit='addjob()'>
-            <input type='text' name='info' class='form-control'>
-            <input type='hidden' name='stock'>
-            <button type='submit' class='btn btn-info'>Add Job</button>
-        </form>
-    </div>
-    <div style='width:30%'><button type='button' class='btn btn-warning' onclick='sold()'>Mark As Sold</button></div> -->
+    <div id='testing'></div>
     <div class="table">
         <div class='tablehead' >
             <div class = 'tablerow'>

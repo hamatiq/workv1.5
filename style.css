@@ -114,3 +114,7 @@ table{
     width: 70%;
     white-space: nowrap;
 }
+
+.mb-4{
+    margin-bottom: 0px !important;
+}
