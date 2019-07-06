@@ -177,3 +177,27 @@ function addjob(element) {
     });
 
 }
+
+function updatejob(element) {
+    event.preventDefault();
+
+    var stock = $(element).find("input[name='stock']").val();
+    var cost = $(element).find("input[name='cost']").val();
+    var id = $(element).find("input[name='id']").val();
+    $.ajax({
+        type: 'POST',
+        url: 'update_job.php',
+        data: {
+            'stock': stock,
+            'cost': cost,
+            'id':id
+        },
+        success: function(msg) {
+            // console.log(msg);
+            // $('#testing').html(msg);
+            $(element).parent().html(msg);
+            // updateCost(stock);
+        }
+    });
+
+}

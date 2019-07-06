@@ -42,7 +42,7 @@ while($row = $result->fetch_assoc()){
     <div style='width:10.33%' class='tablecell'>".$row['model']."</div>
     <div style='width:6.33%' class='tablecell'>".$row['color']."</div>
     <div style='width:7.33%' class='tablecell'>".$row['milage']."</div>
-    <div style='width: 8.33%' class='tablecell'>".$cost."</div>
+    <div style='width: 8.33%' name='cost' class='tablecell'>".$cost."</div>
     <div style='width: 16.7%' class ='tablecell'>".$row['vin']."</div>";
     $date = strtotime($row['inspection']);
     $month2 = $date - strtotime('-2 month');
