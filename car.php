@@ -58,7 +58,7 @@ while($row = $result->fetch_assoc()){
             onfocus=\"(this.type='date')(this.placeholder='')\" onblur=\"(this.type='text')(this.placeholder='".date("m/j/y",$date)."')\"
             style='font-size:12px; width:70%; overflow: hidden; display:inline-block;' class='form-control'>
                 <input type='hidden' name='stock' value='".$row['stock']."'>
-                <button type='submit' style='font-size:10px;border:none; overflow: hidden;' class='btn btn-primary btn-sm'>✔</button>
+                <button type='submit' style='font-size:12px;border:none; overflow: hidden; margin-left: 0px; margin-top: -4px;' class='btn btn-primary btn-sm'>✔</button>
             </form>
         </div>";
     }
@@ -96,10 +96,10 @@ while($row = $result->fetch_assoc()){
     }
     print"
     <div style='width: 3%'class='tablecell'>
-        <button onclick='showjobs(".$row['stock'].", this)' type='button' class='btn btn-warning'>&#x21CA;</button>
+        <button style='margin-left: 0px;' onclick='showjobs(".$row['stock'].", this)' type='button' class='btn btn-warning'>&#x21CA;</button>
     </div>
     </div>
-    <div style='display:none; width:90%; margin:auto;' id='".$row['stock']."job'>
+    <div style='display:none; width:90%; margin:auto; ' id='".$row['stock']."job'>
     </div>
     <script>filljob(".$row['stock'].");</script>";
 

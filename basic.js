@@ -21,7 +21,7 @@ function cars(str) {
     $.ajax({
         url: 'car.php?q=' + str,
         success: function(result) {
-            $('#carlist').append(result);
+            $('#carlist').html(result);
         }
     });
 }
@@ -48,14 +48,14 @@ function jobs(element, stock) {
     $.ajax({
         url: 'jobs.php?stock=' + stock,
         success: function(result) {
-            $('#not_done').append(result);
+            $('#not_done').html(result);
         }
     });
     // print jobs that are done
     $.ajax({
         url: 'donejobs.php?stock=' + stock,
         success: function(result) {
-            $('#done').append(result);
+            $('#done').html(result);
         }
     });
 }

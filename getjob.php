@@ -47,7 +47,7 @@ else{
                     <div class='col-md-8 mb-4' style='margin:0;'>
                     <input class='form-control' type='number' name='cost'>
                     </div>
-                    <div class='col-md-4 mb-4' style='margin:0;'>
+                    <div class='col-md-4 mb-4' style='margin:0; '>
                         <button type='submit' class='btn btn-warning'>Ordered</button>
                     </div>
                 </form>
@@ -55,7 +55,7 @@ else{
             ";
         }
         else {
-            print "<div style='width:30%' class='tablecell '>
+            print "<div style='width:30%; margin-left:4px;' class='tablecell '>
                 $".$job['part_cost']."
             </div>";
         }

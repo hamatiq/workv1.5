@@ -118,3 +118,14 @@ table{
 .mb-4{
     margin-bottom: 0px !important;
 }
+
+.btn{
+    font-size: 12px;
+    margin-top: 6px;
+    margin-right: 5px;
+    margin-left: -6px;
+}
+
+.form-control{
+    margin-top: 3px;
+}
