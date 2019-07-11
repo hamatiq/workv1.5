@@ -201,3 +201,40 @@ function updatejob(element) {
     });
 
 }
+
+function updaterow( stock){
+    $.ajax({
+        type: 'POST',
+        url: 'update_row.php',
+        data: {
+            'stock': stock
+        },
+        success: function(msg){
+            // $('#testing').html(msg);
+            $('#'+stock+'row').html(msg);
+        }
+    });
+}
+
+function jobdone(element){
+    event.preventDefault();
+
+    var stock = $(element).find("input[name='stock']").val();
+    var cost = $(element).find("input[name='cost']").val();
+    var id = $(element).find("input[name='id']").val();
+
+    $.ajax({
+        type: 'POST',
+        url: 'job_done.php',
+        data:{
+            'id': id,
+            'cost': cost,
+            'stock': stock
+        },
+        success: function(msg){
+            // $('#testing').html(msg);
+            filljob(stock);
+            updaterow(stock);
+        }
+    })
+}

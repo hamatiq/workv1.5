@@ -63,8 +63,10 @@ else{
         }
            print "
            <div style='width:30%' class='tablecell'>
-                <form action='updatejob(this)' class='form-row'>
+                <form onsubmit='jobdone(this)' class='form-row'>
                     <div class='col-md-8 mb-4' style='margin:0;'>
+                    <input type='hidden' name='stock' value='$stock'>
+                    <input type='hidden' name='id' value='".$job['id']."'>
                     <input class='form-control' type='number' name='cost'>
                     </div>
                     <div class='col-md-4 mb-4' style='margin:0;'>
