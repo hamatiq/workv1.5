@@ -1,8 +1,5 @@
 <?php
-$dbhost = 'todo2.cjdks7jqac0y.us-east-2.rds.amazonaws.com'; // Your MySQL database hostname on Amazon EC2 (Should be same as mine unless you changed it)
-$dbuser = 'aaauto'; // Your MySQL database username on Amazon EC2 (Should be same as mine unless you changed it)
-$dbpass = 'Sawsan.123'; // Your MySQL database password on Amazon EC2 (Remember this otherwise you will not be able to access your database)
-$dbname = 'todo'; //The name of your MySQL database (Should be same as mine unless you changed it
+require "db.conf";
 
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
